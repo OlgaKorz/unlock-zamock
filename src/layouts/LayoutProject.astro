@@ -1,0 +1,14 @@
+---
+import Layout from "./Layout.astro";
+
+const {frontmatter} = Astro.props
+---
+
+<Layout title={frontmatter.title}>
+    <main class="uk-section uk-container">
+        <div class="uk-margin-mottom">
+            <a href="/">Back to main page</a>
+        </div>
+        <slot />
+    </main>
+</Layout>
