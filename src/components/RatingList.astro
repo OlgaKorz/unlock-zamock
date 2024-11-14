@@ -1,0 +1,22 @@
+---
+const { rating } = Astro.props;
+---
+<astro-rating data-rating={rating}>
+    <div class="rating-list uk-flex uk-flex-center"></div>
+</astro-rating>
+
+<script>
+    class AstroRating extends HTMLElement {
+      connectedCallback() {
+  
+        const rating = this.dataset.rating;
+        const listWrap = this.querySelector('div');
+        let n = 0;
+        while (n < rating) {
+          console.log (n++);
+          listWrap.appendChild(document.createElement("span"));
+        }
+      }
+    }
+    customElements.define('astro-rating', AstroRating);
+</script>

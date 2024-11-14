@@ -1,12 +1,534 @@
 // 1. Your custom variables and variable overwrites.
-$global-link-color: #DA7D02;
+$global-font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$global-font-size: 16px !default;
+$global-color: #000 !default;
+$global-primary-background: #0098fa !default;
+$section-primary-color-mode: dark !default;
+$tile-primary-color-mode: dark !default;
+$global-secondary-background: #171717 !default;
+$section-secondary-background: #0e0e0e !default;
+$global-muted-background: #e6f0ff !default;
+$inverse-global-primary-background: $global-muted-background !default;
+$inverse-text-muted-color: #b3d1ff !default;
+$notification-message-background: #fff !default;
+$global-border: $global-color !default;
+$border-rounded-border-radius: 10px !default;
+$button-text-transform: none !default;
+$form-label-font-size: $global-font-size !default;
+$form-label-color: $global-color !default;
+$form-large-padding-horizontal: 20px !default;
+$form-padding-horizontal: 15px !default;
+$heading-medium-font-size-l: 4rem !default;
+$heading-small-font-size-m: $heading-medium-font-size-l * 0.6125 !default;
+$heading-small-font-size: $heading-small-font-size-m * 0.6 !default;
+$nav-primary-item-color: $global-color !default;
+$nav-primary-item-hover-color: $global-primary-background !default;
+$global-inverse-color: #fff !default;
+$inverse-nav-primary-item-color: $global-inverse-color !default;
+$inverse-nav-primary-item-hover-color: $global-primary-background !default;
+$nav-medium-line-height: 1.5 !default;
+$nav-medium-font-size-l: 2.5rem !default;
+$nav-medium-font-size-m: $nav-medium-font-size-l * 0.875 !default;
+$nav-medium-font-size: $nav-medium-font-size-m * 0.625 !default;
+$navbar-toggle-color: $global-color !default;
+//$navbar-toggle-hover-color: $global-secondary-background !default;
+$close-color: $global-color !default;
+//$close-hover-color: $global-secondary-background !default;
+
 
 // 2. Import default variables and available mixins.
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 
 // 3. Your custom mixin overwrites.
+@mixin hook-nav-primary-item(){font-weight: 600;}
 @mixin hook-card() { color: #000; }
 
+@mixin hook-navbar-container(){
+    &:not(.uk-navbar-transparent) {
+        background: $global-background;
+        //box-shadow: $navbar-dropdown-box-shadow;
+    }
+}
+@mixin hook-button(){
+    font-family: 'Unbounded';
+    text-transform: $button-text-transform;
+    transition: .1s ease-in-out;
+    transition-property: color, background-color, background-position, background-size, border-color, box-shadow;
+    border-radius: $badge-border-radius;
+    font-weight: 500;
+}
+
+@mixin hook-button-text(){
+
+    position: relative;
+    padding: 0;
+    line-height: 30px;
+    z-index: 0;
+    padding-right: 10px;
+    padding-right: 0;
+    transition: padding .25s cubic-bezier(0, 0, .05, 1);
+    border-radius: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-bottom: 1px solid currentColor;
+        transition: .25s cubic-bezier(0, 0, .05, 1);
+        transition-property: left, right;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: $section-secondary-background;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        transition: .25s cubic-bezier(0, 0, .05, 1);
+        transition-property: height, width, background-position;
+    }
+
+}
+@mixin hook-button-text-hover(){
+
+    padding-right: 50px;
+
+    &::before { 
+        left: 0;
+        right: 100%;
+     }
+
+    &::after {
+        width: 40px;
+        height: 40px;
+        background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2215%22%20height%3D%2214%22%20viewBox%3D%220%200%2015%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22m14.78%2C6.88h.01s-6.86%2C7.15-6.86%2C7.15l-1.27-1.22%2C4.7-4.89H.2v-1.76h11.32L6.44%2C1.27l1.22-1.27%2C7.14%2C6.86h-.01Z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A);
+        background-position: 50% 50%;
+    }
+
+}
+
+@mixin hook-form(){
+    border: $form-border-width solid $form-border;
+    transition: 0.2s ease-in-out;
+    transition-property: color, background-color, border;
+    border-radius: $badge-border-radius;
+}
+@mixin hook-form-label(){
+    color: $form-label-color;
+    font-size: $form-label-font-size;
+    font-weight: 600;
+}
+@mixin hook-modal-dialog(){
+    border-radius: $border-rounded-border-radius;
+}
+@mixin hook-button-primary-hover(){
+    box-shadow: 0 0 0 5px rgba($global-primary-background, 0.5);
+}
+@mixin hook-button-primary-active(){
+    box-shadow: 0 0 0 3px rgba($global-primary-background, 0.5);
+}
+@mixin hook-button-secondary-hover(){
+    box-shadow: 0 0 0 5px rgba($global-secondary-background, 0.5);
+}
+@mixin hook-button-secondary-active(){
+    box-shadow: 0 0 0 3px rgba($global-secondary-background, 0.5);
+}
+@mixin hook-inverse-button-primary-hover(){
+    box-shadow: 0 0 0 5px rgba($global-muted-background, 0.5);
+}
+@mixin hook-inverse-button-primary-active(){
+    box-shadow: 0 0 0 3px rgba($global-muted-background, 0.5);
+}
+@mixin hook-inverse-button-secondary-hover(){
+    box-shadow: 0 0 0 5px rgba($global-inverse-color, 0.5);
+}
+@mixin hook-inverse-button-secondary-active(){
+    box-shadow: 0 0 0 3px rgba($global-inverse-color, 0.5);
+}
+
 // 4. Import UIkit.
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap');
+
 @import "uikit/src/scss/uikit-theme.scss";
+
+h1, h2, h3, .uk-h1, .uk-h2, .uk-h3, .uk-heading-medium, .uk-heading-large, .uk-heading-xlarge {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 800;
+}
+h4, .uk-h4, .uk-heading-small {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 600;
+}
+.uk-navbar-toggle-icon>svg {
+    width: 30px;
+}
+.tm-page {
+    position: relative;
+}
+.tm-header {
+    position: relative;
+}
+.tm-header-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+:where(.tm-header-overlay) {
+    z-index: 980;
+}
+.tm-height-min-1-1 {
+    min-height: 100%;
+}
+.tm-height-expand:has(> .uk-panel:only-child > :only-child) {
+    flex: 1;
+    display: flex;
+}
+
+.rating-list span {
+    margin-right: 5px;
+}
+.rating-list span:before{
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpolygon fill='%23fec400' stroke='%23fec400' stroke-width='1.01' points='10 2 12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27'%3E%3C/polygon%3E%3C/svg%3E");
+}
+.image-decor {
+    position: relative;
+}
+.image-decor-element {
+    height: 200px;
+    width: 100%;
+    background-color: $global-primary-background;
+    box-shadow: 0 0 0 5px rgba($global-primary-background, 0.5);
+    border-radius: 500px;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+}
+.image-decor img {
+    position: relative;
+    z-index: 10;
+}
+.service-card,
+.service-card.uk-card-hover:not(.uk-card-default):not(.uk-card-primary):not(.uk-card-secondary):hover {
+    background-color: $global-muted-background;
+}
+.service-card .uk-card-media-top {
+    border-radius: $border-rounded-border-radius $border-rounded-border-radius 0 0;
+}
+.service-card-price {
+    z-index: 3;
+    background-color: $section-secondary-background;
+    border-radius: $border-rounded-border-radius;
+    font-weight: 600;
+    padding: 10px;
+    color: #fec400;
+}
+.service-card .uk-card-body {
+    position: relative;
+}
+.uk-dropbar-inset {
+    padding-top: 0;
+}
+.tm-height-min-1-1 {
+    min-height: 100%;
+}
+.uk-textarea {
+    border-radius: 30px;
+}
+.icon-bg {
+    padding: 10px;
+    margin-right: 15px;
+    background: $global-muted-background;
+    box-shadow: 0 0 0 5px rgba($global-muted-background, 0.5);
+}
+.call-mobile {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: $global-success-background;
+    box-shadow: 0 8px 10px rgba($global-success-background, 0.3);
+    transition: .3s;
+    -webkit-animation: hoverWave linear 1s infinite;
+    animation: hoverWave linear 1s infinite;
+}
+.call-mobile>div {
+    padding: 15px;
+    animation: 1200ms ease 0s normal none 1 running shake;
+    animation-iteration-count: infinite;
+    -webkit-animation: 1200ms ease 0s normal none 1 running shake;
+    -webkit-animation-iteration-count: infinite;
+    transition: .3s all;
+}
+@-webkit-keyframes hoverWave {
+    0% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 0 rgba($global-success-background, 0.2), 0 0 0 0 rgba($global-success-background, 0.2)
+    }
+
+    40% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 15px rgba($global-success-background, 0.2), 0 0 0 0 rgba($global-success-background, 0.2)
+    }
+
+    80% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 30px rgba($global-success-background, 0), 0 0 0 26.7px rgba($global-success-background, 0.067)
+    }
+
+    100% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 30px rgba($global-success-background, 0), 0 0 0 40px rgba($global-success-background, 0.0)
+    }
+}
+
+@keyframes hoverWave {
+    0% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 0 rgba($global-success-background, 0.2), 0 0 0 0 rgba($global-success-background, 0.2)
+    }
+
+    40% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 15px rgba($global-success-background, 0.2), 0 0 0 0 rgba($global-success-background, 0.2)
+    }
+
+    80% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 30px rgba($global-success-background, 0), 0 0 0 26.7px rgba($global-success-background, 0.067)
+    }
+
+    100% {
+        box-shadow: 0 8px 10px rgba($global-success-background, 0.3), 0 0 0 30px rgba($global-success-background, 0), 0 0 0 40px rgba($global-success-background, 0.0)
+    }
+}
+
+/* animations icon */
+
+@keyframes shake {
+    0% {
+        transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+    }
+
+    10% {
+        transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        -webkit-transform: rotateZ(-30deg);
+    }
+
+    20% {
+        transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg);
+        -webkit-transform: rotateZ(15deg);
+    }
+
+    30% {
+        transform: rotateZ(-10deg);
+        -ms-transform: rotateZ(-10deg);
+        -webkit-transform: rotateZ(-10deg);
+    }
+
+    40% {
+        transform: rotateZ(7.5deg);
+        -ms-transform: rotateZ(7.5deg);
+        -webkit-transform: rotateZ(7.5deg);
+    }
+
+    50% {
+        transform: rotateZ(-6deg);
+        -ms-transform: rotateZ(-6deg);
+        -webkit-transform: rotateZ(-6deg);
+    }
+
+    60% {
+        transform: rotateZ(5deg);
+        -ms-transform: rotateZ(5deg);
+        -webkit-transform: rotateZ(5deg);
+    }
+
+    70% {
+        transform: rotateZ(-4.28571deg);
+        -ms-transform: rotateZ(-4.28571deg);
+        -webkit-transform: rotateZ(-4.28571deg);
+    }
+
+    80% {
+        transform: rotateZ(3.75deg);
+        -ms-transform: rotateZ(3.75deg);
+        -webkit-transform: rotateZ(3.75deg);
+    }
+
+    90% {
+        transform: rotateZ(-3.33333deg);
+        -ms-transform: rotateZ(-3.33333deg);
+        -webkit-transform: rotateZ(-3.33333deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+    }
+}
+
+@-webkit-keyframes shake {
+    0% {
+        transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+    }
+
+    10% {
+        transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        -webkit-transform: rotateZ(-30deg);
+    }
+
+    20% {
+        transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg);
+        -webkit-transform: rotateZ(15deg);
+    }
+
+    30% {
+        transform: rotateZ(-10deg);
+        -ms-transform: rotateZ(-10deg);
+        -webkit-transform: rotateZ(-10deg);
+    }
+
+    40% {
+        transform: rotateZ(7.5deg);
+        -ms-transform: rotateZ(7.5deg);
+        -webkit-transform: rotateZ(7.5deg);
+    }
+
+    50% {
+        transform: rotateZ(-6deg);
+        -ms-transform: rotateZ(-6deg);
+        -webkit-transform: rotateZ(-6deg);
+    }
+
+    60% {
+        transform: rotateZ(5deg);
+        -ms-transform: rotateZ(5deg);
+        -webkit-transform: rotateZ(5deg);
+    }
+
+    70% {
+        transform: rotateZ(-4.28571deg);
+        -ms-transform: rotateZ(-4.28571deg);
+        -webkit-transform: rotateZ(-4.28571deg);
+    }
+
+    80% {
+        transform: rotateZ(3.75deg);
+        -ms-transform: rotateZ(3.75deg);
+        -webkit-transform: rotateZ(3.75deg);
+    }
+
+    90% {
+        transform: rotateZ(-3.33333deg);
+        -ms-transform: rotateZ(-3.33333deg);
+        -webkit-transform: rotateZ(-3.33333deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+    }
+}
+.section-left>*,
+.section-right>*,
+.section-center,
+.section-full {
+    box-shadow: 0 0 0 5px rgba($global-primary-background, 0.5);
+}
+.section-full {
+    position: relative;
+    z-index: 10;
+}
+.section-center a.uk-link-heading:hover {
+    color: $global-inverse-color;
+}
+.nav-phone {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.nav-phone a:hover path {
+    stroke: $global-primary-background;
+}
+.icon-card-small > div {
+    padding: 5px;
+}
+.service-image {
+    min-height: 300px;
+}
+footer .uk-section-secondary:not(.uk-preserve-color) a.uk-link-heading:hover {
+    color: $text-primary-color;
+}
+.cocial-icons > a:last-child {
+    margin-right: 0!important;
+}
+.uk-flex>picture {
+    display: contents;
+}
+@media screen and (max-width: $breakpoint-small-max) {
+    .page-header .uk-container-item-padding-remove-right {
+        margin-right: 0;
+        width: 100%;
+    }
+    .uk-text-lead {
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width: $breakpoint-large) {
+	.image-cta {
+        position: absolute;
+        top: -120px;
+        left: -20px;
+        width: 250px;
+    }
+}
+@media screen and (width: 1200px) {
+    .image-cta {
+        position: static;
+        width: 100%;
+    }
+}
+@media screen and (min-width: $breakpoint-medium) {
+    .service-image {
+        min-height: 500px;
+    }
+}
+@media screen and (min-width: $breakpoint-large) {
+    .section-left {
+        bottom:-50px;
+        z-index: 10;
+    }
+    .section-right {
+        top:-50px;
+        z-index: 10;
+    }
+    .section-left > *{
+        border-radius: 0 $border-rounded-border-radius $border-rounded-border-radius 0;
+    }
+    .section-right > *{
+        border-radius: $border-rounded-border-radius 0 0 $border-rounded-border-radius;
+    }
+}
+@media screen and (max-width: 420px) {
+    .uk-navbar-item>.uk-button{padding: 0 10px;}
+    .card-phone svg {
+        width: 20px;
+        height: 20px;
+    }
+    .card-phone .uk-h4 {
+        font-size: 1rem;
+    }
+}

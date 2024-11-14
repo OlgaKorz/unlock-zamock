@@ -1,0 +1,17 @@
+---
+import RatingList from '../components/RatingList.astro';
+
+const { name, date, rating, service, text } = Astro.props;
+---
+<div>
+    <div class="uk-card uk-card-secondary uk-card-small uk-card-body uk-border-rounded uk-flex uk-flex-column uk-flex-between">
+        <div>
+            <RatingList rating={rating} /> 
+        </div>
+        <div class="uk-margin-medium-top">{text}</div>
+        <div class="uk-margin-medium-top">
+            <div><span class="uk-h4 uk-margin-right">{name}</span><span class="uk-text-small">({date})</span></div>            
+            <div>{service}</div>
+        </div>        
+    </div>
+</div>

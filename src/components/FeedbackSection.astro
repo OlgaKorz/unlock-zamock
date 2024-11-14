@@ -1,0 +1,55 @@
+---
+import Section from "./Section.astro";
+import CardFeedback from "./CardFeedback.astro";
+import ButtonModal from "./ButtonModal.astro";
+import feedbackData from "../data/feedback.json"
+const {title, text, btnText, btnClass, modalUrl } = Astro.props;
+---
+<Section 
+    secClass="uk-section-large uk-section-secondary"
+    contClass="uk-container-large">
+    <!-- Заголовок секции -->
+    <div class="uk-child-width-1-1" uk-grid>
+        <div>					
+            <h2 class="uk-h1 uk-width-2xlarge uk-margin-medium-top uk-margin-auto uk-text-center uk-text-muted">{title}</h2>
+            <div class="uk-text-lead uk-width-2xlarge uk-margin-medium-top uk-margin-auto uk-text-center">{text}</div>				
+        </div>
+    </div>
+    <div class="uk-margin-large-top" uk-slider="autoplay: true; sets: true;">
+        <div class="uk-position-relative">
+            <div class="uk-slider-container uk-light">
+                <div class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-light uk-grid-small"
+                        uk-height-match="target: > div > .uk-card">
+                    {
+                        feedbackData.map((feedback) => {
+                            return (
+                            <CardFeedback 
+                                name = {feedback.name}
+                                date = {feedback.date}
+                                rating = {feedback.rating}
+                                service = {feedback.service}
+                                text = {feedback.text}
+                            />										
+                            );
+                        })
+                    }					
+                </div>
+            </div>
+            <div class="uk-hidden@s uk-light">
+                <a class="uk-position-center-left uk-position-small" href="" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small" href="" uk-slidenav-next uk-slider-item="next"></a>
+            </div>			
+            <div class="uk-visible@s">
+                <a class="uk-position-center-left-out uk-position-small" href="" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right-out uk-position-small" href="" uk-slidenav-next uk-slider-item="next"></a>
+            </div>					
+        </div>		
+        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin uk-visible@s"></ul>		
+    </div>
+    <div class="uk-margin-large-top uk-text-center">
+        <ButtonModal
+                btnText={btnText}
+                btnClass={btnClass}
+                modalUrl={modalUrl} />
+    </div>		
+</Section>

@@ -1,0 +1,52 @@
+---
+---
+<h3 class="uk-h2 uk-text-primary uk-text-center">Залишіть Ваш відгук</h3>
+<div class="uk-margin-medium-top uk-text-center uk-text-bold">
+    Поділіться своїм досвідом та враженням від роботи сервісу аварійного відкриття UnlockZamok
+</div>
+<div class="uk-margin-medium-top">
+    <form class="uk-form-stacked">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="input2_name">Ваше ім'я<sup>*</sup></label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="input2_name" name="client-name" type="text" placeholder="Напишіть Ваше ім'я ..." aria-label="Input" required>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="input2_phone">Номер телефону<sup>*</sup></label>
+            <div class="uk-form-controls">
+                <input class="uk-input client-phone" id="input2_phone" name="client-phone" type="tel" aria-label="Input" 
+                placeholder="38 (0__) ___‒__‒__" required>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="service">Оберіть послугу, якою ви скористалися</label>
+            <select id="service" class="uk-select" name="service" aria-label="Select">
+                <option>Відкриття дверних замків</option>
+                <option>Відкриття сейфофих замків</option>
+                <option>Відкриття авто</option>
+            </select>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-form-label">Поставте оцінку роботі сервіса</div>
+            <div class="uk-child-width-1-5 uk-grid-small uk-text-center" uk-grid>
+                <label><input class="uk-radio" type="radio" name="rank" value="1">  1</label>
+                <label><input class="uk-radio" type="radio" name="rank" value="2">  2</label>
+                <label><input class="uk-radio" type="radio" name="rank" value="3">  3</label>
+                <label><input class="uk-radio" type="radio" name="rank" value="4">  4</label>
+                <label><input class="uk-radio" type="radio" name="rank" value="5" checked>  5</label>
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="input2_text">Ваш відгук<sup>*</sup></label>
+            <div class="uk-form-controls">
+                <textarea class="uk-textarea" id="input2_text" rows="5" name="client-feedback" placeholder="Напишіть про роботу нашого майстра ..." required aria-label="Textarea"></textarea>
+            </div>
+        </div>        
+        <div class="uk-alert" uk-alert="" style="display: none;"></div>
+        <div class="uk-margin">
+            <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Відправити</button>
+        </div>
+        <div class="uk-margin uk-text-small uk-text-muted">Поля, позначені <sup>*</sup> - обов'язкові для заповнення. Відправляючи форму, Ви даєте згоду на обробку персональних даних.</div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+---
+import ButtonModal from "./ButtonModal.astro";
+const { title, btnText, btnClass, modalUrl   } = Astro.props;
+---
+<div id="js-oversized" class="uk-child-width-1-2@m" uk-grid>
+    <div>
+        <div class="uk-panel uk-width-1-1 uk-position-z-index" 
+                uk-sticky="end: #js-oversized; offset: 80; media: @m;">
+            <h2 class="uk-h1">{title}</h2>
+            <div class="uk-margin-medium-top">
+                <slot name="firstCol"/>
+            </div>
+            <div class="uk-margin-medium-top">
+                <ButtonModal
+                    btnText={btnText}
+                    btnClass={btnClass}
+                    modalUrl={modalUrl} />
+            </div>
+        </div>					
+    </div>
+    <div>
+        <div class="uk-panel uk-width-1-1">
+            <div class="uk-child-width-1-1 uk-grid-small" uk-grid
+                    uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-bottom-small; delay: 100;">
+                <slot />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+---
+const { number, title, text } = Astro.props;
+---
+<div>
+    <div class="uk-tile uk-tile-default uk-padding-small uk-border-rounded" uk-scrollspy-class>
+        <div class="uk-flex uk-flex-middle">
+            <div class="uk-heading-medium uk-margin-right uk-margin-remove-bottom">{ number }</div>
+            <h3 class="uk-margin-remove">{ title }</h3>
+        </div>
+        <div class="uk-margin-top">								
+            { text }
+        </div>
+    </div>
+</div>

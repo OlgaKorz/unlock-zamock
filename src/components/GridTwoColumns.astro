@@ -1,0 +1,16 @@
+---
+const { title } = Astro.props;
+---
+<div class="uk-child-width-1-2@m" uk-grid>
+    <div>
+        <h2 class="uk-h1">{title}</h2>
+        <div class="uk-margin-medium-top">
+            <slot name="firstCol"/>	
+        </div>					
+    </div>
+    <div class="uk-flex uk-flex-middle">					
+        <div class="uk-panel uk-width-1-1">
+            <slot name="secondCol"/>
+        </div>					
+    </div>
+</div>

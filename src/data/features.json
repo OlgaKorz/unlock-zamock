@@ -1,0 +1,40 @@
+[
+    {
+        "featuresMain" : [
+            {
+                "title": "Терміновий виїзд",
+                "text": "Наш майстр приїде до Вас вже за 20 хвилин. Працюємо цілодобово і без вихідних.",
+                "icon": "/img/time-quarter-past-svgrepo-com.svg"
+            },
+            {
+                "title": "Всі замки",
+                "text": "Багаторічний досвід та професіоназм дозволяє нам відкривати замки будь-якої складності та секретності. Працюємо без пошкоджень.",
+                "icon": "/img/lock-open-svgrepo-com.svg"
+            },
+            {
+                "title": "10 років на ринку",
+                "text": "Наші майстри одними з перших в Києві починали свою діяльність з аварійного відкриття.",
+                "icon": "/img/locksmith-locksmith-service-svgrepo-com.svg"
+            },
+            {
+                "title": "Безпека",
+                "text": "Виконуємо роботу тільки за наявності документів, що підтверджують особу та право власності на об'єкт.",
+                "icon": "/img/shield-lock-fill-svgrepo-com.svg"
+            }
+        ],
+        "featuresService" : [
+            {
+                "text": "Приїдемо за 20 хвилин",
+                "icon": "/img/time-quarter-past-svgrepo-com.svg"
+            },
+            {
+                "text": "Відкриємо швидко і без пошкоджень",
+                "icon": "/img/locksmith-locksmith-service-svgrepo-com.svg"
+            },
+            {
+                "text": "Працюємо тільки за наявності документів",
+                "icon": "/img/shield-lock-fill-svgrepo-com.svg"
+            }
+        ]
+    }
+]

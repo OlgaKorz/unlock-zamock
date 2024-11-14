@@ -1,0 +1,34 @@
+[
+    {
+        "FavCall": "tel:+380689359595",
+        "Call": "Ми завжди на зв'язку. Телефонуйте за номерами:",
+        "Items" : [
+            {
+                "num": "+38 (068) 935-95-95",
+                "url": "tel:+380689359595"
+            },
+            {
+                "num": "+38 (063) 935-95-95",
+                "url": "tel:+380639359595"
+            }
+        ],
+        "Write": "Або напишіть нам у месенджер:",
+        "Messangers" : [
+            {
+                "title": "Напишіть нам у Telegram",
+                "url": "https://t.me/Vladdd135",
+                "icon": "/img/telegram.svg"
+            },
+            {
+                "title": "Напишіть нам у Viber",
+                "url": "viber://chat?number=%2B380639359085",
+                "icon": "/img/viber.svg"
+            },
+            {
+                "title": "Напишіть нам у Whatsapp",
+                "url": "https://wa.me/380639359085",
+                "icon": "/img/whatsapp.svg"
+            }
+        ]
+    }
+]

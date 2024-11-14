@@ -1,0 +1,8 @@
+---
+const { text, image } = Astro.props;
+---
+
+<div class="uk-flex uk-flex-center uk-flex-middle uk-flex-wrap uk-text-center@l icon-card-small">
+    <div class="uk-width-auto uk-width-1-1@l"><img src={image} alt="Аварійне відкриття" width="40" height="40" class="uk-text-primary" uk-svg></div>
+    <div class="uk-width-expand uk-width-1-1@l uk-text-small uk-text-bold">{text}</div>
+</div>

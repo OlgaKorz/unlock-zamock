@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceHeading from '../components/ServiveHeading.astro';
+import SectionRight from '../components/SectionExpandRight.astro';
+import CardIconSmall from '../components/CardIconSmall.astro';
+import FormContactHorisontal from '../components/FormContactHorisontal.astro';
+import featuresData from '../data/features.json';
+import { getCollection } from 'astro:content'
+
+// 1. Создайте новый путь для каждого элемента коллекции
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('services');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+// 2. Для вашего шаблона вы можете получить запись непосредственно из свойства
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+
+---
+<Layout title={entry.data.title}>
+  <ServiceHeading 
+    title={entry.data.title} 
+    subtitle="м. Київ 24/7"
+    text={entry.data.text}
+    imgSrc={entry.data.imgurl.src}
+    price={entry.data.price}>
+    <div class="uk-margin-medium-top uk-margin-small-bottom uk-child-width-1-3@l uk-grid-small" uk-grid>
+      {
+        featuresData.map((data) => {
+            return (
+                data.featuresService.map((item) => (
+                   <div>
+                      <CardIconSmall image={item.icon} text={item.text} />
+                   </div> 
+                ))                    
+            )
+        })
+    }
+    </div>
+	</ServiceHeading>
+  <SectionRight>
+      <FormContactHorisontal />
+  </SectionRight>
+  <!-- <Section 
+    secClass="uk-section-default uk-section-large"
+    contClass="uk-container-large">
+    <Content />
+  </Section>  -->
+  <Content />
+</Layout>
+

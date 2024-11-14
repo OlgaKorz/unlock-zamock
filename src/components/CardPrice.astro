@@ -1,0 +1,10 @@
+---
+const { service, prefix, price, cur } = Astro.props;
+---
+<div class="uk-card uk-card-default uk-card-small uk-card-body uk-border-rounded uk-flex uk-flex-wrap uk-flex-between uk-flex-middle"
+     uk-scrollspy-class>
+    <div class="uk-width-expand uk-h4 uk-margin-remove-bottom uk-margin-small-right">{ service }</div>
+    <div class="uk-width-auto uk-width-small@s uk-text-right">
+        { prefix }<span class="uk-h2 uk-text-primary">{ price }</span> { cur }
+    </div>
+</div>

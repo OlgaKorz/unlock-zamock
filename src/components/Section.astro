@@ -1,0 +1,8 @@
+---
+const { secClass, contClass } = Astro.props;
+---
+<section class:list={["uk-section", secClass]}>
+    <div class:list={["uk-container", contClass]}>
+        <slot/>
+    </div>
+</section>

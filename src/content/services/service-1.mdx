@@ -1,0 +1,144 @@
+---
+title: 'Відкриття дверних замків'
+slug: 'door-unlocking'
+description: 'Труднощі з доступом до приміщень виникають за різних обставин: втрата або крадіжка ключів, поломка ключа, несправність механізму замку або личинки, блокування дверної конструкції і навіть навмисне кривдження замку зловмисниками. Наш майстр за допомогою професійних інструментів зможе швидко вирішити ці проблеми, відкрити двері без пошкоджень та за необхідності замінити замок.'
+imgurl: './open-door-service.jpg'
+imgalt: 'Аварійне вдкриття дверей'
+price: 'від 300 грн'
+---
+import Section from '../../components/Section.astro';
+import FeedbackSection from '../../components/FeedbackSection.astro';
+import GridTwoColumns from '../../components/GridTwoColumns.astro';
+import GridTwoColumnsScrollspy from '../../components/GridTwoColumnsScrollspy.astro';
+import CardPrice from '../../components/CardPrice.astro';
+import ImageParalax from '../../components/ImageParalax.astro';
+import Process from '../../components/Process.astro';
+import CTA from '../../components/CTA.astro';
+import keyImage from '../../assets/img/brokenkey-shadow.png';
+import aboutImage from '../../assets/img/doorabout.png';
+import doorData from '../../data/door.json';
+import priceData from "../../data/price.json";
+
+
+<Section 
+    secClass="uk-section-default uk-section-large uk-padding-remove-bottom"
+    contClass="uk-container-large">
+    <GridTwoColumns
+        title="Якісний сервіс аварійного відкриття авто">
+        <div slot="firstCol">
+            <p>
+                Якщо Ви втратили чи закрили ключі в машині або ж виникли інші труднощі з доступом до автівки, то наш досвідчений майстр сервісу UnlockZamock з легкістю відкриє Ваше авто без пошкоджень, допоможе зняти машину з сигналізації, розблокувати замок запалювання, відремонтувати або замінити личинку дверного замку чи замку запалювання. Якщо Ви втратили ключі, то в нас є спеціальна послуга з відновлення авто-ключів.
+            </p>
+        </div>
+        <ImageParalax imgSrc={aboutImage} imgAlt="Аварійне відкриття замків" slot="secondCol"/>
+    </GridTwoColumns>
+</Section>
+<Section
+	secClass="uk-section-default uk-section-large"
+	contClass="uk-container-large">
+	<div>
+		<h2 class="uk-h3">Проблеми, які можуть виникнути із вашими сейфами</h2>
+		<ul class="uk-list uk-list-disc uk-margin-medium-top uk-column-1-2@m">
+			<li><span class="uk-text-bold">Втрата ключів.</span> Один із найпоширеніших сценаріїв, коли доступ до сейфа повністю заблокований. Замість того, щоб ламати голову над пошуками ключів, довірте вирішення цієї проблеми нам.</li>
+			<li><span class="uk-text-bold">Несправності замків.</span> Навіть самі надійні замки можуть іноді вийти з ладу. Це може бути спричинене зносом механізму або заводським браком. Ситуація стає особливо неприємною, коли доступ до сейфа потрібний терміново, а Ви не можете його відкрити.</li>
+			<li><span class="uk-text-bold">Заблоковані електронні системи.</span> Сучасні сейфи оснащені електронними замками, які можуть відмовити у невідповідний момент. Неправильне введення коду або збій в електроніці можуть залишити Вас без доступу до Ваших цінностей.</li>
+			<li><span class="uk-text-bold">Ключі вкрадені зловмисниками.</span> Безпека Ваших речей – це не лише технічні питання, а й захист від зовнішніх загроз. Якщо Ви втратили ключі або підозрюєте, що вони могли потрапити в ненадійні руки, термінове відкриття сейфа допоможе Вам убезпечити ваше майно.</li>
+		</ul>
+	</div>
+	<div class="uk-margin-large-top">
+		<h2 class="uk-h3">Послуги аварійного відкриття сейфів</h2>
+		<div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-grid-small uk-margin-medium-top" 
+			uk-grid 
+			uk-height-match="target: .uk-card"
+			uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-bottom-medium; delay: 200;">
+			{
+				doorData.map((data) => {
+					return (
+						data.servicesDoor.map((item) => (
+							<div>
+								<div class="uk-card uk-card-default uk-card-hover uk-card-small uk-text-center uk-border-rounded" uk-scrollspy-class>
+									<div class="uk-card-body">
+										<h3 class="uk-h4 uk-text-primary">{item.title}</h3>
+									</div>
+								</div>
+							</div>
+						))                    
+					)
+				})
+			}
+		</div>
+	</div>
+</Section>
+<Process
+    title="Як ми працюємо"
+    text="UnlockZamok надає послуги з аварійного відкриття автомобілей тільки в разі наявності документів: паспорт або водійські права, технічний паспорт на машину."
+    btnText="Викликати майстра"
+    btnClass="uk-button-large uk-button-secondary"
+    modalUrl="#contact-modal" />
+<FeedbackSection
+		title="Відгуки наших клієнтів"
+		text="Ми цінуємо думки наших клієнтів про якість сервісу аварійного відкриття. Будь ласка, поділіться Вашим досвідом."
+		btnText="Написати відгук"
+		btnClass="uk-button-large uk-button-secondary"
+		modalUrl="#feedback-modal" />
+
+<Section 
+		secClass="uk-section-muted uk-section-large"
+		contClass="uk-container-large">
+    <GridTwoColumnsScrollspy
+			title="Ціни на послуги"
+			btnText="Отримати консультацію"
+			btnClass="uk-button-large uk-button-primary"
+			modalUrl="#contact-modal"
+			>
+        <div slot="firstCol">
+            <p>Звертаємо Вашу увагу, що при первинному зверненні клієнту оголошується орієнтовна вартість, яка далі уточнюється майстром, безпосередньо при його виїзді на місце.</p>
+            <p>При аварійному відкриванні дверних або сейфових замків вартість залежить від складності та секретності замку, ступеню його пошкодження.</p>
+            <p>При аварійному відкриванні машин вартість послуг залежить від марки та року випуску автівки.</p>
+        </div>
+        {
+				priceData.map((price) => {
+					return (
+						price.priceDoor.map((item) => (
+							<div>
+								<CardPrice
+									service={item.service}
+									prefix={item.prefix}
+									price={item.price}
+									cur={item.cur}
+								/>
+							</div>
+						))
+					)
+				})
+			}
+			{
+				priceData.map((price) => {
+					return (
+						price.priceCommon.map((item) => (
+							<div>
+								<CardPrice
+									service={item.service}
+									prefix={item.prefix}
+									price={item.price}
+									cur={item.cur}
+								/>
+							</div>
+						))
+					)
+				})
+			}
+    </GridTwoColumnsScrollspy>
+</Section>
+
+<Section 
+    secClass="uk-section-default uk-section-large">
+    <CTA 
+        imgSrc={keyImage}
+        imgAlt="Аварійне відкриття"
+        title="Згубився ключ або заклинив дверний замок?"
+        text="Звертайтеся до сервісу аваріного відкриття UnlockZamok. Наші кваліфіковані майстри допоможуть Вам навіть в найскладніших ситуаціях."
+        btnText="Оформити заявку"
+        btnClass="uk-button-large uk-button-secondary"
+        modalUrl="#contact-modal"/>
+</Section>

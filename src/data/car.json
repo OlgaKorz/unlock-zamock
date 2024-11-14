@@ -1,0 +1,118 @@
+[
+    {
+        "servicesCar" : [
+            {
+                "title": "Екстренне аварійне відкриття замків авто"
+            },
+            {
+                "title": "Зняття машини з сигналізації"
+            },
+            {
+                "title": "Розблокування замку запалювання"
+            },
+            {
+                "title": "Ремонт замків двері"
+            },
+            {
+                "title": "Ремонт замків запалювання"
+            },            
+            {
+                "title": "Програмування чіпа під імобілазер"
+            },
+            {
+                "title": "Відновлення автоключів по замку"
+            },
+            {
+                "title": "Виготовлення автоключів та личинок"
+            }
+        ],
+        "countCar" : [
+            {
+                "num": "6",
+                "unit": "тис",
+                "text": "відкритих автомобілів"
+            },
+            {
+                "num": "3",
+                "unit": "тис",
+                "text": "перепрошитих ключів"
+            },
+            {
+                "num": "4",
+                "unit": "тис",
+                "text": "відремонтованих замків"
+            },
+            {
+                "num": "10",
+                "unit": "",
+                "text": "років на ринку"
+            }
+        ],
+        "galleryCar": [
+            {
+                "img": "/img/car/unlockzamok_c001.jpg",
+                "alt": "1"
+            },
+            {
+                "img": "/img/car/unlockzamok_c002.jpg",
+                "alt": "2"
+            },
+            {
+                "img": "/img/car/unlockzamok_c003.jpg",
+                "alt": "3"
+            },
+            {
+                "img": "/img/car/unlockzamok_c004.jpg",
+                "alt": "4"
+            },
+            {
+                "img": "/img/car/unlockzamok_c005.jpg",
+                "alt": "5"
+            },
+            {
+                "img": "/img/car/unlockzamok_c006.jpg",
+                "alt": "6"
+            },
+            {
+                "img": "/img/car/unlockzamok_c007.jpg",
+                "alt": "7"
+            },
+            {
+                "img": "/img/car/unlockzamok_c008.jpg",
+                "alt": "8"
+            },
+            {
+                "img": "/img/car/unlockzamok_c009.jpg",
+                "alt": "9"
+            },
+            {
+                "img": "/img/car/unlockzamok_c0100.webp",
+                "alt": "10"
+            },
+            {
+                "img": "/img/car/unlockzamok_c011.jpeg",
+                "alt": "11"
+            },
+            {
+                "img": "/img/car/unlockzamok_c012.jpg",
+                "alt": "12"
+            },
+            {
+                "img": "/img/car/unlockzamok_c013.jpg",
+                "alt": "13"
+            },
+            {
+                "img": "/img/car/unlockzamok_c014.jpg",
+                "alt": "14"
+            },
+            {
+                "img": "/img/car/unlockzamok_c015.jpg",
+                "alt": "15"
+            },
+            {
+                "img": "/img/car/unlockzamok_c016.webp",
+                "alt": "16"
+            }
+        ]
+    }
+]

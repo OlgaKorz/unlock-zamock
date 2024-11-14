@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import ButtonModal from '../components/ButtonModal.astro';
+const { title, description, url, imgPath, imgAlt, price } = Astro.props;
+
+---
+<article uk-scrollspy-class>
+    <a class="uk-panel uk-transition-toggle uk-link-toggle" href={url} title={title}>
+    <!-- <a class="uk-panel uk-transition-toggle uk-link-toggle" href={modalurl} title={title} uk-toggle> -->
+        <div class="service-card uk-card uk-card-muted uk-card-hover uk-text-center uk-border-rounded">
+            <div class="uk-card-media-top uk-cover-container">
+                <Image
+					src={imgPath}
+					loading="lazy"
+					decoding="async"
+					class="uk-transition-scale-up uk-transition-opaque"
+					width="600"
+					height="400"
+					widths={[1024, 1220]}
+					sizes="(min-width: 680px) 680px"
+					alt={imgAlt}
+                    uk-cover
+				/>
+                <canvas width="600" height="400"></canvas>
+                <div class="service-card-price uk-position-top-right uk-overlay uk-overlay-default">{price}</div>
+            </div>						
+            <div class="uk-card-body">
+                <h3 class="uk-card-title uk-link-heading">{title}</h3>
+                <div>{description}</div>
+                <div class="uk-margin-medium-top uk-text-right">                    
+                    <div class="uk-button uk-button-text">Детальніше</div>
+                </div>                
+            </div>
+        </div>
+    </a>
+</article>

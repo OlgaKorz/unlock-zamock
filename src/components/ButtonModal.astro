@@ -1,0 +1,10 @@
+---
+const { btnText, btnClass, modalUrl } = Astro.props;
+---
+<a class:list={["uk-button", btnClass]} href={modalUrl} uk-toggle >{btnText}</a>
+<div id="modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>        
+        <slot />
+    </div>
+</div>

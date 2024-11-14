@@ -1,0 +1,32 @@
+[
+    {
+        "feauturesSafe" : [
+            {
+                "text": "Приїдемо за 20 хвилин",
+                "icon": "/img/time-quarter-past-svgrepo-com.svg"
+            },
+            {
+                "text": "Відкриємо швидко і без пошкоджень",
+                "icon": "/img/locksmith-locksmith-service-svgrepo-com.svg"
+            },
+            {
+                "text": "Працюємо тільки за наявності документів",
+                "icon": "/img/shield-lock-fill-svgrepo-com.svg"
+            }
+        ],
+        "servicesSafe" : [
+            {
+                "title": "Екстренне відкриття сейфових замків"
+            },
+            {
+                "title": "Ремонт сейфових замків"
+            },
+            {
+                "title": "Заміна сейфових замків"
+            },
+            {
+                "title": "Перекодування замків сейфу"
+            }
+        ]
+    }
+]

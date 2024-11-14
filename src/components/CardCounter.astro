@@ -1,0 +1,9 @@
+---
+const { num, text, unit } = Astro.props;
+---
+<div class="uk-panel uk-width-1-1 uk-text-center uk-text-bold counter">
+    <div>
+        <span class="uk-heading-medium uk-text-primary" data-count={num}>0</span> {unit}
+    </div>
+    <div>{text}</div>
+</div>

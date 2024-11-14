@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+const { imgSrc, imgAlt } = Astro.props;
+---
+<div class="image-decor uk-text-center" slot="secondCol">
+    <div class="image-decor-element"
+         uk-parallax="y: 0,-20vh; easing: 2; target: !.uk-section"
+    ></div>
+    <div uk-parallax="y: -10vh,20vh; easing: 1; target: !.uk-section">
+        <Image src={imgSrc} width="450" height="300" alt={imgAlt} />
+    </div>					
+</div>

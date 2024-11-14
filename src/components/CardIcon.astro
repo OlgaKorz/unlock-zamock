@@ -1,0 +1,14 @@
+---
+const { title, text, image } = Astro.props;
+---
+<div class="uk-card uk-card-hover uk-card-small uk-text-center uk-border-rounded" uk-scrollspy-class>
+    <div class="uk-card-media-top uk-flex uk-flex-center">
+        <div class="uk-margin-top uk-padding-small uk-border-circle icon-bg">
+            <img src={image} alt={title} uk-svg width="50" height="50" />
+        </div>							
+    </div>
+    <div class="uk-card-body">
+        <h3 class="uk-card-title uk-text-primary">{title}</h3>
+        <p>{ text }</p>
+    </div>
+</div>

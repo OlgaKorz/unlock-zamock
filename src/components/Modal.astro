@@ -1,0 +1,9 @@
+---
+const { modalId } = Astro.props;
+---
+<div id={modalId} class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default uk-close-large" type="button" uk-close></button>        
+        <slot />
+    </div>
+</div>
